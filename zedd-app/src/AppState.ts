@@ -268,6 +268,9 @@ export class AppState {
   public whatsNewDialogOpen: boolean = true
 
   @observable
+  public createNewTask: undefined | Task = undefined
+
+  @observable
   @serializable
   public whatsNewDialogLastOpenedForVersion: string = ''
 
@@ -884,7 +887,8 @@ export class AppState {
       this.settingsDialogOpen ||
       this.renamingTask ||
       this.changingSliceTask ||
-      this.whatsNewDialogOpen
+      this.whatsNewDialogOpen ||
+      this.createNewTask
     )
   }
 

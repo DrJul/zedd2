@@ -4,6 +4,7 @@ import {
   GetApp as ImportIcon,
   SentimentSatisfiedAlt,
   ContentCopy as CopyIcon,
+  Add as AddIcon,
 } from '@mui/icons-material'
 import { format as formatDate, formatDistance } from 'date-fns'
 import { observer } from 'mobx-react-lite'
@@ -77,7 +78,7 @@ export const TaskEditor = observer(
 
     return (
       <Grid container style={{ ...style, alignItems: 'center' }} spacing={2}>
-        <Grid item xs={10} lg={11}>
+        <Grid item xs={8} lg={10}>
           <TaskSelect
             tasks={state.tasks}
             label={
@@ -108,6 +109,15 @@ export const TaskEditor = observer(
             endIcon={<EditIcon />}
           >
             Rename
+          </Button>
+        </Grid>
+        <Grid item xs={2} lg={1}>
+          <Button
+            onClick={(_) => (state.createNewTask = value)}
+            style={{ width: '100%' }}
+            endIcon={<AddIcon />}
+          >
+            Add Tasks
           </Button>
         </Grid>
         <Grid item xs={6} lg={9}>
