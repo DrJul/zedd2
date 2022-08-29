@@ -270,6 +270,9 @@ export class AppState {
   @observable
   public createNewTask: undefined | Task = undefined
 
+  @serializable(list(object(Task)))
+  public userSavedTasks: IObservableArray<Task> = observable([])
+
   @observable
   @serializable
   public whatsNewDialogLastOpenedForVersion: string = ''
@@ -880,6 +883,10 @@ export class AppState {
 
   public getTasksForMenu(): Task[] {
     return this.lastInteractedTasks
+  }
+
+  public notifyUserSaveTask(task: Task): void {
+    this.userSavedTasks.unshift(task)
   }
 
   public dialogOpen(): boolean {

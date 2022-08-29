@@ -80,7 +80,7 @@ export const TaskEditor = observer(
       <Grid container style={{ ...style, alignItems: 'center' }} spacing={2}>
         <Grid item xs={8} lg={10}>
           <TaskSelect
-            tasks={state.tasks}
+            tasks={[...state.tasks, ...state.userSavedTasks]}
             label={
               state.focused
                 ? `Task for time slice ${formatDate(state.focused.start, 'do MMMM')} ${formatDate(
@@ -113,7 +113,8 @@ export const TaskEditor = observer(
         </Grid>
         <Grid item xs={2} lg={1}>
           <Button
-            onClick={(_) => (state.createNewTask = value)}
+            // onClick={(_) => (state.createNewTask = value)} // new window pops up
+            onClick={(_) => state.notifyUserSaveTask(state.currentTask)} // saves task for later
             style={{ width: '100%' }}
             endIcon={<AddIcon />}
           >
