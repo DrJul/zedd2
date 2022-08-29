@@ -1,0 +1,33 @@
+name: Zedd-App_CI
+
+on:
+  push:
+    branches: [ "feature/**" ]
+
+jobs:
+  build:
+  
+    runs-on: ${{matrix.os}}
+    
+    strategy:
+      matrix: 
+        node-version: [8.x]
+        os: [windows-latest, macos-latest]
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          node-version: ${{matrix.node-version}}
+
+      # Runs a single command using the runners shell
+      - name: Run npm install, build and test
+        run: |
+          cd zedd-app
+          npm install
+          npm build
+          npm test
+
+          
+
