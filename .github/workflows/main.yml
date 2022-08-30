@@ -8,6 +8,9 @@ jobs:
   build:
   
     runs-on: ${{matrix.os}}
+    defaults:
+      run:
+        working-directory: ./zedd-app
     
     strategy:
       matrix: 
@@ -20,8 +23,6 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Change dir
-        run: cd zedd-app
       - name: Run npm install
         run: npm install
 
