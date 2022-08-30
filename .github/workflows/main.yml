@@ -2,13 +2,16 @@ name: Zedd-App_CI
 
 on:
   push:
+    # Triggers workflow whenever push is performed on each branch containing "feature/..."
     branches: [ "feature/**" ]
 
 jobs:
   build:
   
+    # The type of runner that the job will run on
     runs-on: ${{matrix.os}}
     
+    # Strategy for performing jobs in multiple enviroments
     strategy:
       matrix: 
         node-version: [16.x]
@@ -20,15 +23,15 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run clarity
+      - name: Run npm ci
         working-directory: ./zedd-clarity
-        run: npm ci --force
-      - name: Run clarity
+        run: npm ci
+      - name: Run npm build
         working-directory: ./zedd-clarity
-        run: npm run build
-      - name: Run test
+        run: npm run build    
+      - name: Run npm ci
         working-directory: ./zedd-app
-        run: npm ci --force
+        run: npm ci
       - name: Run test
         working-directory: ./zedd-app
         run: npm test
