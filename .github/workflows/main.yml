@@ -18,8 +18,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        with:
-          node-version: ${{matrix.node-version}}
 
       # Runs a single command using the runners shell
       - name: Run npm install, build and test
