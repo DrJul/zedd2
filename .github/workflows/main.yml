@@ -20,12 +20,14 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run npm install, build and test
-        run: |
-          cd zedd-app
-          npm install
-          npm build
-          npm test
+      - name: Run a one-line script
+        run: echo Hello, world!
+#       - name: Run npm install, build and test
+#         run: |
+#           cd zedd-app
+#           npm install
+#           npm build
+#           npm test
 
           
 
