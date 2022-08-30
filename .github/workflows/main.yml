@@ -20,11 +20,11 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run npm install, build and test
-        run: |
-          npm install
-          npm build
-          npm test
+      - name: Change dir
+        run: cd zedd-app
+      - name: Run npm install
+        run: npm install
+
 
           
 
