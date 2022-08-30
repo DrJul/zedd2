@@ -23,12 +23,12 @@ jobs:
       - name: Run clarity
         working-directory: ./zedd-clarity
         run: |
-          npm ci
+          npm ci --force
           npm run build
       - name: Run test
         working-directory: ./zedd-app
         run: |
-          npm ci
+          npm ci --force
           npn test
           
 
