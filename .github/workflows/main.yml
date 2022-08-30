@@ -8,13 +8,10 @@ jobs:
   build:
   
     runs-on: ${{matrix.os}}
-    defaults:
-      run:
-        working-directory: ./zedd-app
     
     strategy:
       matrix: 
-        node-version: [8.x]
+        node-version: [16.x]
         os: [windows-latest, macos-latest]
     
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -23,9 +20,15 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run 
+      - name: Run clarity
+        working-directory: ./zedd-clarity
         run: |
-          npm ci --legacy-peer-deps
-          npm build
+          npm ci
+          npm run build
+      - name: Run test
+        working-directory: ./zedd-app
+        run: |
+          npm ci
+          npn test
           
 
