@@ -113,6 +113,7 @@ export const TaskEditor = observer(
         </Grid>
         <Grid item xs={2} lg={1}>
           <Button
+            disabled={!value || value === state.getUndefinedTask()}
             // onClick={(_) => (state.createNewTask = value)} // new window pops up
             onClick={(_) => state.notifyUserSaveTask(state.currentTask)} // saves task for later
             style={{ width: '100%' }}
