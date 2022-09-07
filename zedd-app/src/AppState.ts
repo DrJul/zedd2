@@ -886,7 +886,12 @@ export class AppState {
   }
 
   public notifyUserSaveTask(task: Task): void {
-    this.userSavedTasks.unshift(task)
+    const index = this.userSavedTasks.findIndex((e) => e.name === task.name)
+    if (index === -1) {
+      this.userSavedTasks.unshift(task)
+    } else {
+      this.userSavedTasks.splice(index, 1, task)
+    }
   }
 
   public dialogOpen(): boolean {
