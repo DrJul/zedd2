@@ -268,7 +268,7 @@ export class AppState {
   public whatsNewDialogOpen: boolean = true
 
   @observable
-  public createNewTask: undefined | Task = undefined
+  public manageTasks: boolean = false
 
   @serializable(list(object(Task)))
   public userSavedTasks: IObservableArray<Task> = observable([])
@@ -900,7 +900,7 @@ export class AppState {
       this.renamingTask ||
       this.changingSliceTask ||
       this.whatsNewDialogOpen ||
-      this.createNewTask
+      this.manageTasks
     )
   }
 

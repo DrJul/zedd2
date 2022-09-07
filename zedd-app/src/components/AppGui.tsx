@@ -27,7 +27,7 @@ import { ZeddSettings } from '../ZeddSettings'
 import { TitleBar } from './TitleBar'
 import { AppBody } from './AppBody'
 import changelog from '../../../CHANGELOG.md'
-import { CreateNewTaskDialog } from './CreateNewTaskDialog'
+import { TaskManager as TaskManager } from './TaskManager'
 
 export interface AppGuiProps {
   state: AppState
@@ -164,12 +164,12 @@ export const AppGui = observer(
               />
             )
           )}
-          {state.createNewTask && (
-            <CreateNewTaskDialog
-              task={state.createNewTask}
+          {state.manageTasks && (
+            <TaskManager
+              task={state.manageTasks}
               // key={'dialog-rename-task-' + currentFocusedTask.name}
               state={state}
-              onClose={() => (state.createNewTask = undefined)}
+              onClose={() => (state.manageTasks = undefined)}
             />
           )}
           <ErrorBoundary>

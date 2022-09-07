@@ -110,6 +110,7 @@ const getMenuItems = (state: AppState) => [
     click: () => shell.showItemInFolder(userConfigFile),
   },
   { label: 'Edit Settings', click: () => (state.settingsDialogOpen = true) },
+  { label: 'Manage Tasks', click: () => (state.manageTasks = true) },
   { label: 'Github', click: () => shell.openExternal('https://github.com/Andrej1b/zedd2') },
   { label: 'Open Dev', click: () => getCurrentWindow().webContents.openDevTools() },
   { label: 'Reload Config', click: () => getCurrentWindow().reload() },

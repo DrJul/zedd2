@@ -5,7 +5,7 @@ import * as React from 'react'
 import { AppState } from '../AppState'
 import { ClarityState } from '../ClarityState'
 
-export const CreateNewTaskDialog = ({
+export const TaskManager = ({
   state,
   onClose,
 }: {
@@ -16,11 +16,9 @@ export const CreateNewTaskDialog = ({
   clarityState: ClarityState
   onClose: () => void
 }) => {
-  console.log('aaa')
-
   return (
     <Dialog open={true} aria-labelledby='form-dialog-title' maxWidth='lg' fullWidth>
-      <DialogTitle id='form-dialog-title'>{`Create new Task `}</DialogTitle>
+      <DialogTitle id='form-dialog-title'>{`Manage Your Tasks`}</DialogTitle>
       <form>
         <DialogContent>
           {/* <TaskEditor
@@ -36,7 +34,7 @@ export const CreateNewTaskDialog = ({
             Cancel
           </Button>
           <Button type='submit' color='primary'>
-            Save
+            Save Changes
           </Button>
         </DialogActions>
       </form>
